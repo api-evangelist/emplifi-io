@@ -1,6 +1,8 @@
+# x-archived-from: socialbakers-care-api-openapi.yml
+# x-archived-on: 2026-09-26
 openapi: 3.2.0
 info:
-  title: Emplifi (Socialbakers) Public Community API
+  title: Emplifi (Socialbakers) Public Care API
   version: '3'
   description: The Emplifi Public API (v3) — formerly the Socialbakers API — provides programmatic access to social media analytics, published content, profile and post metrics, community engagement, social listening, Facebook Ads, digital asset management (Assets), and customer care (Care) data across Facebook, Instagram, X/Twitter, YouTube, LinkedIn, Pinterest, TikTok and Snapchat.
   contact:
@@ -17,83 +19,33 @@ security:
 - basicAuth: []
 - oauth2: []
 tags:
-- name: Community
-  description: Community content, labeling and engagement metrics
+- name: Care
+  description: Customer care cases and messages
 paths:
-  /3/community/content:
+  /3/care/cases:
     get:
-      operationId: getCommunityContent
-      summary: List community content
+      operationId: getCareCases
+      summary: List customer care cases
       tags:
-      - Community
+      - Care
       responses:
         '200':
           $ref: '#/components/responses/Success'
         '401':
           $ref: '#/components/responses/Unauthorized'
-  /3/community/content/labeling:
-    post:
-      operationId: labelCommunityContent
-      summary: Apply labels to community content
+  /3/care/messages:
+    get:
+      operationId: getCareMessages
+      summary: List customer care case messages
       tags:
-      - Community
-      requestBody:
-        $ref: '#/components/requestBodies/Query'
+      - Care
       responses:
         '200':
           $ref: '#/components/responses/Success'
         '401':
           $ref: '#/components/responses/Unauthorized'
-  /3/community/metrics:
-    post:
-      operationId: getCommunityMetrics
-      summary: Community engagement metrics
-      tags:
-      - Community
-      requestBody:
-        $ref: '#/components/requestBodies/MetricsQuery'
-      responses:
-        '200':
-          $ref: '#/components/responses/Success'
-        '401':
-          $ref: '#/components/responses/Unauthorized'
-        '429':
-          $ref: '#/components/responses/RateLimited'
 components:
-  responses:
-    Success:
-      description: Successful response
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/SuccessEnvelope'
-    RateLimited:
-      description: Rate limit exceeded (1000 req/hour account, 500 req/hour user)
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorEnvelope'
-    Unauthorized:
-      description: Authentication failed
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorEnvelope'
   schemas:
-    SuccessEnvelope:
-      type: object
-      properties:
-        success:
-          type: boolean
-          const: true
-        header:
-          type: array
-          items:
-            type: object
-            additionalProperties: true
-        data: {}
-      required:
-      - success
     ErrorEnvelope:
       type: object
       properties:
@@ -114,49 +66,33 @@ components:
       required:
       - success
       - errors
-    MetricsQuery:
+    SuccessEnvelope:
       type: object
       properties:
-        profiles:
-          type: array
-          maxItems: 100
-          items:
-            type: string
-        metrics:
-          type: array
-          maxItems: 25
-          items:
-            type: string
-        dimensions:
+        success:
+          type: boolean
+          const: true
+        header:
           type: array
           items:
-            type: string
-        date_start:
-          type: string
-          format: date
-        date_end:
-          type: string
-          format: date
-      required:
-      - profiles
-      - metrics
-      - date_start
-      - date_end
-  requestBodies:
-    Query:
-      required: false
-      content:
-        application/json:
-          schema:
             type: object
             additionalProperties: true
-    MetricsQuery:
-      required: true
-      description: Metrics query — profiles, metrics and a date range (max 100 profiles, 25 metrics, 12-month range).
+        data: {}
+      required:
+      - success
+  responses:
+    Success:
+      description: Successful response
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/MetricsQuery'
+            $ref: '#/components/schemas/SuccessEnvelope'
+    Unauthorized:
+      description: Authentication failed
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorEnvelope'
   securitySchemes:
     basicAuth:
       type: http

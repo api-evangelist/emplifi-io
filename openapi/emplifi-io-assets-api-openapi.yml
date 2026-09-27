@@ -1,0 +1,279 @@
+openapi: 3.2.0
+info:
+  title: Emplifi Io Assets API
+  version: '3'
+  contact:
+    name: Emplifi API Support
+    url: https://api.emplifi.io/
+  x-apievangelist:
+    method: derived
+    source: https://api.emplifi.io/ (Emplifi API v3 documentation) + https://github.com/Emplifi/public-api-tableau-wdc
+    note: Derived from the published Emplifi Public API documentation and the official Emplifi public-api-tableau-wdc connector source. Endpoint paths, methods, auth schemes and the response envelope are taken from those public sources; request/response schemas are representative, not verbatim.
+  description: 'Operations tagged Assets across 2 of this provider''s published API definitions: socialbakers-emplifi-public-api-openapi.yml, socialbakers-assets-api-openapi.yml. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://api.emplifi.io
+  description: Emplifi Public API production
+security:
+- basicAuth: []
+- oauth2: []
+tags:
+- name: Assets
+  description: Digital asset management — collections and assets
+paths:
+  /3/collections:
+    get:
+      operationId: listCollections
+      summary: List asset collections
+      tags:
+      - Assets
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    post:
+      operationId: createCollection
+      summary: Create an asset collection
+      tags:
+      - Assets
+      requestBody:
+        $ref: '#/components/requestBodies/Query'
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/ValidationError'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    servers:
+    - url: https://api.emplifi.io
+      description: Emplifi Public API production
+  /3/collections/{id}:
+    put:
+      operationId: editCollection
+      summary: Edit an asset collection
+      tags:
+      - Assets
+      parameters:
+      - $ref: '#/components/parameters/Id'
+      requestBody:
+        $ref: '#/components/requestBodies/Query'
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    delete:
+      operationId: deleteCollection
+      summary: Delete an asset collection
+      tags:
+      - Assets
+      parameters:
+      - $ref: '#/components/parameters/Id'
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    servers:
+    - url: https://api.emplifi.io
+      description: Emplifi Public API production
+  /3/collections/{id}/archive:
+    post:
+      operationId: archiveCollection
+      summary: Archive an asset collection
+      tags:
+      - Assets
+      parameters:
+      - $ref: '#/components/parameters/Id'
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    servers:
+    - url: https://api.emplifi.io
+      description: Emplifi Public API production
+  /3/collections/{id}/restore:
+    post:
+      operationId: restoreCollection
+      summary: Restore an archived asset collection
+      tags:
+      - Assets
+      parameters:
+      - $ref: '#/components/parameters/Id'
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    servers:
+    - url: https://api.emplifi.io
+      description: Emplifi Public API production
+  /3/assets:
+    get:
+      operationId: getAssets
+      summary: List assets
+      tags:
+      - Assets
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    servers:
+    - url: https://api.emplifi.io
+      description: Emplifi Public API production
+  /3/assets/upload:
+    post:
+      operationId: uploadAsset
+      summary: Upload an asset
+      tags:
+      - Assets
+      requestBody:
+        $ref: '#/components/requestBodies/Query'
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/ValidationError'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    servers:
+    - url: https://api.emplifi.io
+      description: Emplifi Public API production
+  /3/assets/{id}:
+    put:
+      operationId: editAsset
+      summary: Edit an asset
+      tags:
+      - Assets
+      parameters:
+      - $ref: '#/components/parameters/Id'
+      requestBody:
+        $ref: '#/components/requestBodies/Query'
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    delete:
+      operationId: deleteAsset
+      summary: Delete an asset
+      tags:
+      - Assets
+      parameters:
+      - $ref: '#/components/parameters/Id'
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    servers:
+    - url: https://api.emplifi.io
+      description: Emplifi Public API production
+components:
+  responses:
+    Unauthorized:
+      description: Authentication failed
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorEnvelope'
+    Success:
+      description: Successful response
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/SuccessEnvelope'
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorEnvelope'
+    ValidationError:
+      description: Input validation error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorEnvelope'
+  schemas:
+    SuccessEnvelope:
+      type: object
+      properties:
+        success:
+          type: boolean
+          const: true
+        header:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+        data: {}
+      required:
+      - success
+    ErrorEnvelope:
+      type: object
+      properties:
+        success:
+          type: boolean
+          const: false
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              code:
+                type: integer
+              errors:
+                type: array
+                items:
+                  type: string
+      required:
+      - success
+      - errors
+  requestBodies:
+    Query:
+      required: false
+      content:
+        application/json:
+          schema:
+            type: object
+            additionalProperties: true
+  parameters:
+    Id:
+      name: id
+      in: path
+      required: true
+      description: Resource identifier
+      schema:
+        type: string
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      description: HTTP Basic authorization. Credentials are your Emplifi API `token` and `secret`, base64-encoded as `token:secret`.
+    oauth2:
+      type: oauth2
+      description: OAuth 2.0 authorization code flow. Create a Custom integration in Emplifi Settings to obtain client credentials.
+      flows:
+        authorizationCode:
+          authorizationUrl: https://api.emplifi.io/oauth2/0/auth
+          tokenUrl: https://api.emplifi.io/oauth2/0/token
+          scopes: {}
+x-refined-from:
+- socialbakers-emplifi-public-api-openapi.yml
+- socialbakers-assets-api-openapi.yml

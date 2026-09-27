@@ -1,26 +1,24 @@
-aid: socialbakers
-name: Socialbakers
-description: >-
-  Socialbakers was a pioneering social media analytics and marketing platform
-  (founded 2008 in Prague) that let brands and agencies benchmark, measure and
-  optimize their presence across Facebook, Instagram, X/Twitter, YouTube,
-  LinkedIn, Pinterest, TikTok and Snapchat. In 2021 Socialbakers was acquired
-  by Astute and rebranded to Emplifi, a unified social customer experience
-  platform combining social marketing, commerce and care. The former
-  Socialbakers Public API lives on as the Emplifi Public API (v3) at
-  api.emplifi.io, exposing profile and post metrics, published content, social
-  listening, community engagement, Facebook Ads, digital asset management and
-  customer care data. Authentication is HTTP Basic (API token/secret) or OAuth
-  2.0 authorization code, with hourly rate limits and cursor-paginated content
-  endpoints.
-url: https://raw.githubusercontent.com/api-evangelist/socialbakers/refs/heads/main/apis.yml
+aid: emplifi-io
+name: Emplifi
+description: Emplifi (formerly Socialbakers) is a unified social customer experience platform combining
+  social marketing, commerce and care. Socialbakers was a pioneering social media analytics and marketing
+  platform, founded 2008 in Prague, that let brands and agencies benchmark, measure and optimize their
+  presence across Facebook, Instagram, X/Twitter, YouTube, LinkedIn, Pinterest, TikTok and Snapchat; it
+  joined Astute and rebranded as Emplifi in 2021 (socialbakers.com now redirects to emplifi.io). This
+  record was listed as Socialbakers until 2026-09-24. The former Socialbakers Public API lives on as the
+  Emplifi Public API (v3) at api.emplifi.io, exposing profile and post metrics, published content, social
+  listening, community engagement, Facebook Ads, digital asset management and customer care data. Authentication
+  is HTTP Basic (API token/secret) or OAuth 2.0 authorization code, with hourly rate limits and cursor-paginated
+  content endpoints.
+url: https://raw.githubusercontent.com/api-evangelist/emplifi-io/refs/heads/main/apis.yml
+x-also-known-as:
+- Socialbakers
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - earlybird
 x-tier: stub
 x-tier-reason: portfolio-lead
-x-successor: Emplifi
 deliveryModel:
   model: saas
   open_source: false
@@ -56,7 +54,7 @@ modified: '2026-08-13'
 tags:
 - Company
 - Marketing
-- Social-Media
+- Social Media
 - Analytics
 - Social Media Analytics
 - Social Listening
@@ -75,9 +73,10 @@ tags_raw:
 - Digital Asset Management
 - Customer Care
 - Emplifi
+- Social-Media
 apis:
-- aid: socialbakers:socialbakers-ads-api
-  name: Socialbakers Ads API
+- aid: emplifi-io:emplifi-io-ads-api
+  name: Emplifi Ads API
   description: Facebook Ads content and metrics
   humanURL: https://api.emplifi.io/
   baseURL: https://api.emplifi.io
@@ -85,7 +84,7 @@ apis:
   - Ads
   properties:
   - type: OpenAPI
-    url: openapi/socialbakers-ads-api-openapi.yml
+    url: openapi/emplifi-io-ads-api-openapi.yml
   - type: Authentication
     url: authentication/socialbakers-authentication.yml
   - type: OAuthScopes
@@ -100,8 +99,8 @@ apis:
     url: data-model/socialbakers-data-model.yml
   - type: Conformance
     url: conformance/socialbakers-conformance.yml
-- aid: socialbakers:socialbakers-assets-api
-  name: Socialbakers Assets API
+- aid: emplifi-io:emplifi-io-assets-api
+  name: Emplifi Assets API
   description: Digital asset management — collections and assets
   humanURL: https://api.emplifi.io/
   baseURL: https://api.emplifi.io
@@ -109,7 +108,7 @@ apis:
   - Assets
   properties:
   - type: OpenAPI
-    url: openapi/socialbakers-assets-api-openapi.yml
+    url: openapi/emplifi-io-assets-api-openapi.yml
   - type: Authentication
     url: authentication/socialbakers-authentication.yml
   - type: OAuthScopes
@@ -124,8 +123,8 @@ apis:
     url: data-model/socialbakers-data-model.yml
   - type: Conformance
     url: conformance/socialbakers-conformance.yml
-- aid: socialbakers:socialbakers-care-api
-  name: Socialbakers Care API
+- aid: emplifi-io:emplifi-io-care-api
+  name: Emplifi Care API
   description: Customer care cases and messages
   humanURL: https://api.emplifi.io/
   baseURL: https://api.emplifi.io
@@ -133,7 +132,7 @@ apis:
   - Care
   properties:
   - type: OpenAPI
-    url: openapi/socialbakers-care-api-openapi.yml
+    url: openapi/emplifi-io-care-api-openapi.yml
   - type: Authentication
     url: authentication/socialbakers-authentication.yml
   - type: OAuthScopes
@@ -148,8 +147,8 @@ apis:
     url: data-model/socialbakers-data-model.yml
   - type: Conformance
     url: conformance/socialbakers-conformance.yml
-- aid: socialbakers:socialbakers-community-api
-  name: Socialbakers Community API
+- aid: emplifi-io:emplifi-io-community-api
+  name: Emplifi Community API
   description: Community content, labeling and engagement metrics
   humanURL: https://api.emplifi.io/
   baseURL: https://api.emplifi.io
@@ -157,7 +156,7 @@ apis:
   - Community
   properties:
   - type: OpenAPI
-    url: openapi/socialbakers-community-api-openapi.yml
+    url: openapi/emplifi-io-community-api-openapi.yml
   - type: Authentication
     url: authentication/socialbakers-authentication.yml
   - type: OAuthScopes
@@ -172,8 +171,8 @@ apis:
     url: data-model/socialbakers-data-model.yml
   - type: Conformance
     url: conformance/socialbakers-conformance.yml
-- aid: socialbakers:socialbakers-listening-api
-  name: Socialbakers Listening API
+- aid: emplifi-io:emplifi-io-listening-api
+  name: Emplifi Listening API
   description: Social listening content and metrics
   humanURL: https://api.emplifi.io/
   baseURL: https://api.emplifi.io
@@ -181,7 +180,7 @@ apis:
   - Listening
   properties:
   - type: OpenAPI
-    url: openapi/socialbakers-listening-api-openapi.yml
+    url: openapi/emplifi-io-listening-api-openapi.yml
   - type: Authentication
     url: authentication/socialbakers-authentication.yml
   - type: OAuthScopes
@@ -196,8 +195,8 @@ apis:
     url: data-model/socialbakers-data-model.yml
   - type: Conformance
     url: conformance/socialbakers-conformance.yml
-- aid: socialbakers:socialbakers-posts-api
-  name: Socialbakers Posts API
+- aid: emplifi-io:emplifi-io-posts-api
+  name: Emplifi Posts API
   description: Published content (posts / videos / tweets) per network
   humanURL: https://api.emplifi.io/
   baseURL: https://api.emplifi.io
@@ -205,7 +204,7 @@ apis:
   - Posts
   properties:
   - type: OpenAPI
-    url: openapi/socialbakers-posts-api-openapi.yml
+    url: openapi/emplifi-io-posts-api-openapi.yml
   - type: Authentication
     url: authentication/socialbakers-authentication.yml
   - type: OAuthScopes
@@ -220,8 +219,8 @@ apis:
     url: data-model/socialbakers-data-model.yml
   - type: Conformance
     url: conformance/socialbakers-conformance.yml
-- aid: socialbakers:socialbakers-profile-metrics-api
-  name: Socialbakers Profile Metrics API
+- aid: emplifi-io:emplifi-io-profile-metrics-api
+  name: Emplifi Profile Metrics API
   description: Time-series and aggregate metrics per social profile
   humanURL: https://api.emplifi.io/
   baseURL: https://api.emplifi.io
@@ -229,7 +228,7 @@ apis:
   - Profile Metrics
   properties:
   - type: OpenAPI
-    url: openapi/socialbakers-profile-metrics-api-openapi.yml
+    url: openapi/emplifi-io-profile-metrics-api-openapi.yml
   - type: Authentication
     url: authentication/socialbakers-authentication.yml
   - type: OAuthScopes
@@ -244,8 +243,8 @@ apis:
     url: data-model/socialbakers-data-model.yml
   - type: Conformance
     url: conformance/socialbakers-conformance.yml
-- aid: socialbakers:socialbakers-reference-api
-  name: Socialbakers Reference API
+- aid: emplifi-io:emplifi-io-reference-api
+  name: Emplifi Reference API
   description: Managed profiles, labels, label groups, listening queries, ad accounts
   humanURL: https://api.emplifi.io/
   baseURL: https://api.emplifi.io
@@ -253,7 +252,7 @@ apis:
   - Reference
   properties:
   - type: OpenAPI
-    url: openapi/socialbakers-reference-api-openapi.yml
+    url: openapi/emplifi-io-reference-api-openapi.yml
   - type: Authentication
     url: authentication/socialbakers-authentication.yml
   - type: OAuthScopes

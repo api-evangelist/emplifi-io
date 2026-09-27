@@ -1,6 +1,8 @@
+# x-archived-from: socialbakers-ads-api-openapi.yml
+# x-archived-on: 2026-09-26
 openapi: 3.2.0
 info:
-  title: Emplifi (Socialbakers) Public Profile Metrics API
+  title: Emplifi (Socialbakers) Public Ads API
   version: '3'
   description: The Emplifi Public API (v3) — formerly the Socialbakers API — provides programmatic access to social media analytics, published content, profile and post metrics, community engagement, social listening, Facebook Ads, digital asset management (Assets), and customer care (Care) data across Facebook, Instagram, X/Twitter, YouTube, LinkedIn, Pinterest, TikTok and Snapchat.
   contact:
@@ -17,124 +19,26 @@ security:
 - basicAuth: []
 - oauth2: []
 tags:
-- name: Profile Metrics
-  description: Time-series and aggregate metrics per social profile
+- name: Ads
+  description: Facebook Ads content and metrics
 paths:
-  /3/facebook/metrics:
-    post:
-      operationId: getFacebookMetrics
-      summary: Facebook profile metrics
+  /3/ads/content:
+    get:
+      operationId: getAdsContent
+      summary: List Facebook Ads content
       tags:
-      - Profile Metrics
-      requestBody:
-        $ref: '#/components/requestBodies/MetricsQuery'
-      responses:
-        '200':
-          $ref: '#/components/responses/Success'
-        '400':
-          $ref: '#/components/responses/ValidationError'
-        '401':
-          $ref: '#/components/responses/Unauthorized'
-        '429':
-          $ref: '#/components/responses/RateLimited'
-  /3/instagram/metrics:
-    post:
-      operationId: getInstagramMetrics
-      summary: Instagram profile metrics
-      tags:
-      - Profile Metrics
-      requestBody:
-        $ref: '#/components/requestBodies/MetricsQuery'
-      responses:
-        '200':
-          $ref: '#/components/responses/Success'
-        '400':
-          $ref: '#/components/responses/ValidationError'
-        '401':
-          $ref: '#/components/responses/Unauthorized'
-        '429':
-          $ref: '#/components/responses/RateLimited'
-  /3/twitter/metrics:
-    post:
-      operationId: getTwitterMetrics
-      summary: X/Twitter profile metrics
-      tags:
-      - Profile Metrics
-      requestBody:
-        $ref: '#/components/requestBodies/MetricsQuery'
+      - Ads
       responses:
         '200':
           $ref: '#/components/responses/Success'
         '401':
           $ref: '#/components/responses/Unauthorized'
-        '429':
-          $ref: '#/components/responses/RateLimited'
-  /3/youtube/metrics:
+  /3/ads/metrics:
     post:
-      operationId: getYoutubeMetrics
-      summary: YouTube profile metrics
+      operationId: getAdsMetrics
+      summary: Facebook Ads metrics
       tags:
-      - Profile Metrics
-      requestBody:
-        $ref: '#/components/requestBodies/MetricsQuery'
-      responses:
-        '200':
-          $ref: '#/components/responses/Success'
-        '401':
-          $ref: '#/components/responses/Unauthorized'
-        '429':
-          $ref: '#/components/responses/RateLimited'
-  /3/linkedin/metrics:
-    post:
-      operationId: getLinkedinMetrics
-      summary: LinkedIn profile metrics
-      tags:
-      - Profile Metrics
-      requestBody:
-        $ref: '#/components/requestBodies/MetricsQuery'
-      responses:
-        '200':
-          $ref: '#/components/responses/Success'
-        '401':
-          $ref: '#/components/responses/Unauthorized'
-        '429':
-          $ref: '#/components/responses/RateLimited'
-  /3/pinterest/metrics:
-    post:
-      operationId: getPinterestMetrics
-      summary: Pinterest profile metrics
-      tags:
-      - Profile Metrics
-      requestBody:
-        $ref: '#/components/requestBodies/MetricsQuery'
-      responses:
-        '200':
-          $ref: '#/components/responses/Success'
-        '401':
-          $ref: '#/components/responses/Unauthorized'
-        '429':
-          $ref: '#/components/responses/RateLimited'
-  /3/tiktok/metrics:
-    post:
-      operationId: getTiktokMetrics
-      summary: TikTok profile metrics
-      tags:
-      - Profile Metrics
-      requestBody:
-        $ref: '#/components/requestBodies/MetricsQuery'
-      responses:
-        '200':
-          $ref: '#/components/responses/Success'
-        '401':
-          $ref: '#/components/responses/Unauthorized'
-        '429':
-          $ref: '#/components/responses/RateLimited'
-  /3/aggregated-metrics:
-    post:
-      operationId: getAggregatedMetrics
-      summary: Aggregated post metrics across profiles
-      tags:
-      - Profile Metrics
+      - Ads
       requestBody:
         $ref: '#/components/requestBodies/MetricsQuery'
       responses:
@@ -160,12 +64,6 @@ components:
             $ref: '#/components/schemas/ErrorEnvelope'
     Unauthorized:
       description: Authentication failed
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorEnvelope'
-    ValidationError:
-      description: Input validation error
       content:
         application/json:
           schema:

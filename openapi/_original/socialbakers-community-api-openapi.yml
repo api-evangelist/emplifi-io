@@ -1,6 +1,8 @@
+# x-archived-from: socialbakers-community-api-openapi.yml
+# x-archived-on: 2026-09-26
 openapi: 3.2.0
 info:
-  title: Emplifi (Socialbakers) Public Listening API
+  title: Emplifi (Socialbakers) Public Community API
   version: '3'
   description: The Emplifi Public API (v3) — formerly the Socialbakers API — provides programmatic access to social media analytics, published content, profile and post metrics, community engagement, social listening, Facebook Ads, digital asset management (Assets), and customer care (Care) data across Facebook, Instagram, X/Twitter, YouTube, LinkedIn, Pinterest, TikTok and Snapchat.
   contact:
@@ -17,26 +19,39 @@ security:
 - basicAuth: []
 - oauth2: []
 tags:
-- name: Listening
-  description: Social listening content and metrics
+- name: Community
+  description: Community content, labeling and engagement metrics
 paths:
-  /3/listening/content:
+  /3/community/content:
     get:
-      operationId: getListeningContent
-      summary: List social listening content
+      operationId: getCommunityContent
+      summary: List community content
       tags:
-      - Listening
+      - Community
       responses:
         '200':
           $ref: '#/components/responses/Success'
         '401':
           $ref: '#/components/responses/Unauthorized'
-  /3/listening/metrics:
+  /3/community/content/labeling:
     post:
-      operationId: getListeningMetrics
-      summary: Social listening metrics
+      operationId: labelCommunityContent
+      summary: Apply labels to community content
       tags:
-      - Listening
+      - Community
+      requestBody:
+        $ref: '#/components/requestBodies/Query'
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /3/community/metrics:
+    post:
+      operationId: getCommunityMetrics
+      summary: Community engagement metrics
+      tags:
+      - Community
       requestBody:
         $ref: '#/components/requestBodies/MetricsQuery'
       responses:
@@ -130,6 +145,13 @@ components:
       - date_start
       - date_end
   requestBodies:
+    Query:
+      required: false
+      content:
+        application/json:
+          schema:
+            type: object
+            additionalProperties: true
     MetricsQuery:
       required: true
       description: Metrics query — profiles, metrics and a date range (max 100 profiles, 25 metrics, 12-month range).

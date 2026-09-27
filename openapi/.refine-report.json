@@ -1,9 +1,7 @@
 {
-  "provider": "socialbakers",
+  "provider": "emplifi-io",
   "sources": [
-    "_original/socialbakers-emplifi-public-api-openapi.yml"
-  ],
-  "outputs": [
+    "_original/socialbakers-emplifi-public-api-openapi.yml",
     "socialbakers-ads-api-openapi.yml",
     "socialbakers-assets-api-openapi.yml",
     "socialbakers-care-api-openapi.yml",
@@ -13,22 +11,40 @@
     "socialbakers-profile-metrics-api-openapi.yml",
     "socialbakers-reference-api-openapi.yml"
   ],
-  "archived": [],
+  "outputs": [
+    "emplifi-io-ads-api-openapi.yml",
+    "emplifi-io-assets-api-openapi.yml",
+    "emplifi-io-care-api-openapi.yml",
+    "emplifi-io-community-api-openapi.yml",
+    "emplifi-io-listening-api-openapi.yml",
+    "emplifi-io-posts-api-openapi.yml",
+    "emplifi-io-profile-metrics-api-openapi.yml",
+    "emplifi-io-reference-api-openapi.yml"
+  ],
+  "archived": [
+    "archived openapi/socialbakers-ads-api-openapi.yml",
+    "archived openapi/socialbakers-assets-api-openapi.yml",
+    "archived openapi/socialbakers-care-api-openapi.yml",
+    "archived openapi/socialbakers-community-api-openapi.yml",
+    "archived openapi/socialbakers-listening-api-openapi.yml",
+    "archived openapi/socialbakers-posts-api-openapi.yml",
+    "archived openapi/socialbakers-profile-metrics-api-openapi.yml",
+    "archived openapi/socialbakers-reference-api-openapi.yml"
+  ],
   "errors": [],
   "warnings": [],
   "notes": [
     "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
     "socialbakers-emplifi-public-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "apis.yml register: already-registered"
+    "tag 'Ads' spans 2 source specs (socialbakers-emplifi-public-api-openapi.yml, socialbakers-ads-api-openapi.yml): per-path servers applied",
+    "tag 'Assets' spans 2 source specs (socialbakers-emplifi-public-api-openapi.yml, socialbakers-assets-api-openapi.yml): per-path servers applied",
+    "tag 'Care' spans 2 source specs (socialbakers-emplifi-public-api-openapi.yml, socialbakers-care-api-openapi.yml): per-path servers applied",
+    "tag 'Community' spans 2 source specs (socialbakers-emplifi-public-api-openapi.yml, socialbakers-community-api-openapi.yml): per-path servers applied",
+    "tag 'Listening' spans 2 source specs (socialbakers-emplifi-public-api-openapi.yml, socialbakers-listening-api-openapi.yml): per-path servers applied",
+    "tag 'Posts' spans 2 source specs (socialbakers-emplifi-public-api-openapi.yml, socialbakers-posts-api-openapi.yml): per-path servers applied",
+    "tag 'Profile Metrics' spans 2 source specs (socialbakers-emplifi-public-api-openapi.yml, socialbakers-profile-metrics-api-openapi.yml): per-path servers applied",
+    "tag 'Reference' spans 2 source specs (socialbakers-emplifi-public-api-openapi.yml, socialbakers-reference-api-openapi.yml): per-path servers applied",
+    "apis.yml register: written (+8 apis, 8 total)"
   ],
-  "skipped": [
-    "socialbakers-ads-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "socialbakers-assets-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "socialbakers-care-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "socialbakers-community-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "socialbakers-listening-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "socialbakers-posts-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "socialbakers-profile-metrics-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "socialbakers-reference-api-openapi.yml: previously refined output, superseded by openapi/_original/"
-  ]
+  "skipped": []
 }

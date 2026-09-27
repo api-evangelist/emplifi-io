@@ -1,6 +1,8 @@
+# x-archived-from: socialbakers-profile-metrics-api-openapi.yml
+# x-archived-on: 2026-09-26
 openapi: 3.2.0
 info:
-  title: Emplifi (Socialbakers) Public Assets API
+  title: Emplifi (Socialbakers) Public Profile Metrics API
   version: '3'
   description: The Emplifi Public API (v3) — formerly the Socialbakers API — provides programmatic access to social media analytics, published content, profile and post metrics, community engagement, social listening, Facebook Ads, digital asset management (Assets), and customer care (Care) data across Facebook, Instagram, X/Twitter, YouTube, LinkedIn, Pinterest, TikTok and Snapchat.
   contact:
@@ -17,27 +19,17 @@ security:
 - basicAuth: []
 - oauth2: []
 tags:
-- name: Assets
-  description: Digital asset management — collections and assets
+- name: Profile Metrics
+  description: Time-series and aggregate metrics per social profile
 paths:
-  /3/collections:
-    get:
-      operationId: listCollections
-      summary: List asset collections
-      tags:
-      - Assets
-      responses:
-        '200':
-          $ref: '#/components/responses/Success'
-        '401':
-          $ref: '#/components/responses/Unauthorized'
+  /3/facebook/metrics:
     post:
-      operationId: createCollection
-      summary: Create an asset collection
+      operationId: getFacebookMetrics
+      summary: Facebook profile metrics
       tags:
-      - Assets
+      - Profile Metrics
       requestBody:
-        $ref: '#/components/requestBodies/Query'
+        $ref: '#/components/requestBodies/MetricsQuery'
       responses:
         '200':
           $ref: '#/components/responses/Success'
@@ -45,86 +37,16 @@ paths:
           $ref: '#/components/responses/ValidationError'
         '401':
           $ref: '#/components/responses/Unauthorized'
-  /3/collections/{id}:
-    put:
-      operationId: editCollection
-      summary: Edit an asset collection
+        '429':
+          $ref: '#/components/responses/RateLimited'
+  /3/instagram/metrics:
+    post:
+      operationId: getInstagramMetrics
+      summary: Instagram profile metrics
       tags:
-      - Assets
-      parameters:
-      - $ref: '#/components/parameters/Id'
+      - Profile Metrics
       requestBody:
-        $ref: '#/components/requestBodies/Query'
-      responses:
-        '200':
-          $ref: '#/components/responses/Success'
-        '401':
-          $ref: '#/components/responses/Unauthorized'
-        '404':
-          $ref: '#/components/responses/NotFound'
-    delete:
-      operationId: deleteCollection
-      summary: Delete an asset collection
-      tags:
-      - Assets
-      parameters:
-      - $ref: '#/components/parameters/Id'
-      responses:
-        '200':
-          $ref: '#/components/responses/Success'
-        '401':
-          $ref: '#/components/responses/Unauthorized'
-        '404':
-          $ref: '#/components/responses/NotFound'
-  /3/collections/{id}/archive:
-    post:
-      operationId: archiveCollection
-      summary: Archive an asset collection
-      tags:
-      - Assets
-      parameters:
-      - $ref: '#/components/parameters/Id'
-      responses:
-        '200':
-          $ref: '#/components/responses/Success'
-        '401':
-          $ref: '#/components/responses/Unauthorized'
-        '404':
-          $ref: '#/components/responses/NotFound'
-  /3/collections/{id}/restore:
-    post:
-      operationId: restoreCollection
-      summary: Restore an archived asset collection
-      tags:
-      - Assets
-      parameters:
-      - $ref: '#/components/parameters/Id'
-      responses:
-        '200':
-          $ref: '#/components/responses/Success'
-        '401':
-          $ref: '#/components/responses/Unauthorized'
-        '404':
-          $ref: '#/components/responses/NotFound'
-  /3/assets:
-    get:
-      operationId: getAssets
-      summary: List assets
-      tags:
-      - Assets
-      responses:
-        '200':
-          $ref: '#/components/responses/Success'
-        '401':
-          $ref: '#/components/responses/Unauthorized'
-  /3/assets/upload:
-    post:
-      operationId: uploadAsset
-      summary: Upload an asset
-      tags:
-      - Assets
-      requestBody:
-        $ref: '#/components/requestBodies/Query'
+        $ref: '#/components/requestBodies/MetricsQuery'
       responses:
         '200':
           $ref: '#/components/responses/Success'
@@ -132,46 +54,99 @@ paths:
           $ref: '#/components/responses/ValidationError'
         '401':
           $ref: '#/components/responses/Unauthorized'
-  /3/assets/{id}:
-    put:
-      operationId: editAsset
-      summary: Edit an asset
+        '429':
+          $ref: '#/components/responses/RateLimited'
+  /3/twitter/metrics:
+    post:
+      operationId: getTwitterMetrics
+      summary: X/Twitter profile metrics
       tags:
-      - Assets
-      parameters:
-      - $ref: '#/components/parameters/Id'
+      - Profile Metrics
       requestBody:
-        $ref: '#/components/requestBodies/Query'
+        $ref: '#/components/requestBodies/MetricsQuery'
       responses:
         '200':
           $ref: '#/components/responses/Success'
         '401':
           $ref: '#/components/responses/Unauthorized'
-        '404':
-          $ref: '#/components/responses/NotFound'
-    delete:
-      operationId: deleteAsset
-      summary: Delete an asset
+        '429':
+          $ref: '#/components/responses/RateLimited'
+  /3/youtube/metrics:
+    post:
+      operationId: getYoutubeMetrics
+      summary: YouTube profile metrics
       tags:
-      - Assets
-      parameters:
-      - $ref: '#/components/parameters/Id'
+      - Profile Metrics
+      requestBody:
+        $ref: '#/components/requestBodies/MetricsQuery'
       responses:
         '200':
           $ref: '#/components/responses/Success'
         '401':
           $ref: '#/components/responses/Unauthorized'
-        '404':
-          $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/RateLimited'
+  /3/linkedin/metrics:
+    post:
+      operationId: getLinkedinMetrics
+      summary: LinkedIn profile metrics
+      tags:
+      - Profile Metrics
+      requestBody:
+        $ref: '#/components/requestBodies/MetricsQuery'
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '429':
+          $ref: '#/components/responses/RateLimited'
+  /3/pinterest/metrics:
+    post:
+      operationId: getPinterestMetrics
+      summary: Pinterest profile metrics
+      tags:
+      - Profile Metrics
+      requestBody:
+        $ref: '#/components/requestBodies/MetricsQuery'
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '429':
+          $ref: '#/components/responses/RateLimited'
+  /3/tiktok/metrics:
+    post:
+      operationId: getTiktokMetrics
+      summary: TikTok profile metrics
+      tags:
+      - Profile Metrics
+      requestBody:
+        $ref: '#/components/requestBodies/MetricsQuery'
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '429':
+          $ref: '#/components/responses/RateLimited'
+  /3/aggregated-metrics:
+    post:
+      operationId: getAggregatedMetrics
+      summary: Aggregated post metrics across profiles
+      tags:
+      - Profile Metrics
+      requestBody:
+        $ref: '#/components/requestBodies/MetricsQuery'
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '429':
+          $ref: '#/components/responses/RateLimited'
 components:
-  parameters:
-    Id:
-      name: id
-      in: path
-      required: true
-      description: Resource identifier
-      schema:
-        type: string
   responses:
     Success:
       description: Successful response
@@ -179,6 +154,12 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/SuccessEnvelope'
+    RateLimited:
+      description: Rate limit exceeded (1000 req/hour account, 500 req/hour user)
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorEnvelope'
     Unauthorized:
       description: Authentication failed
       content:
@@ -187,12 +168,6 @@ components:
             $ref: '#/components/schemas/ErrorEnvelope'
     ValidationError:
       description: Input validation error
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorEnvelope'
-    NotFound:
-      description: Resource not found
       content:
         application/json:
           schema:
@@ -232,14 +207,42 @@ components:
       required:
       - success
       - errors
+    MetricsQuery:
+      type: object
+      properties:
+        profiles:
+          type: array
+          maxItems: 100
+          items:
+            type: string
+        metrics:
+          type: array
+          maxItems: 25
+          items:
+            type: string
+        dimensions:
+          type: array
+          items:
+            type: string
+        date_start:
+          type: string
+          format: date
+        date_end:
+          type: string
+          format: date
+      required:
+      - profiles
+      - metrics
+      - date_start
+      - date_end
   requestBodies:
-    Query:
-      required: false
+    MetricsQuery:
+      required: true
+      description: Metrics query — profiles, metrics and a date range (max 100 profiles, 25 metrics, 12-month range).
       content:
         application/json:
           schema:
-            type: object
-            additionalProperties: true
+            $ref: '#/components/schemas/MetricsQuery'
   securitySchemes:
     basicAuth:
       type: http

@@ -1,8 +1,7 @@
 openapi: 3.2.0
 info:
-  title: Emplifi (Socialbakers) Public Ads API
+  title: Emplifi Io Ads API
   version: '3'
-  description: The Emplifi Public API (v3) — formerly the Socialbakers API — provides programmatic access to social media analytics, published content, profile and post metrics, community engagement, social listening, Facebook Ads, digital asset management (Assets), and customer care (Care) data across Facebook, Instagram, X/Twitter, YouTube, LinkedIn, Pinterest, TikTok and Snapchat.
   contact:
     name: Emplifi API Support
     url: https://api.emplifi.io/
@@ -10,6 +9,7 @@ info:
     method: derived
     source: https://api.emplifi.io/ (Emplifi API v3 documentation) + https://github.com/Emplifi/public-api-tableau-wdc
     note: Derived from the published Emplifi Public API documentation and the official Emplifi public-api-tableau-wdc connector source. Endpoint paths, methods, auth schemes and the response envelope are taken from those public sources; request/response schemas are representative, not verbatim.
+  description: 'Operations tagged Ads across 2 of this provider''s published API definitions: socialbakers-emplifi-public-api-openapi.yml, socialbakers-ads-api-openapi.yml. Each path carries the servers of the definition it was published in.'
 servers:
 - url: https://api.emplifi.io
   description: Emplifi Public API production
@@ -31,6 +31,9 @@ paths:
           $ref: '#/components/responses/Success'
         '401':
           $ref: '#/components/responses/Unauthorized'
+    servers:
+    - url: https://api.emplifi.io
+      description: Emplifi Public API production
   /3/ads/metrics:
     post:
       operationId: getAdsMetrics
@@ -46,26 +49,37 @@ paths:
           $ref: '#/components/responses/Unauthorized'
         '429':
           $ref: '#/components/responses/RateLimited'
+    servers:
+    - url: https://api.emplifi.io
+      description: Emplifi Public API production
 components:
   responses:
-    Success:
-      description: Successful response
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/SuccessEnvelope'
-    RateLimited:
-      description: Rate limit exceeded (1000 req/hour account, 500 req/hour user)
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorEnvelope'
     Unauthorized:
       description: Authentication failed
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/ErrorEnvelope'
+    RateLimited:
+      description: Rate limit exceeded (1000 req/hour account, 500 req/hour user)
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorEnvelope'
+    Success:
+      description: Successful response
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/SuccessEnvelope'
+  requestBodies:
+    MetricsQuery:
+      required: true
+      description: Metrics query — profiles, metrics and a date range (max 100 profiles, 25 metrics, 12-month range).
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/MetricsQuery'
   schemas:
     SuccessEnvelope:
       type: object
@@ -81,26 +95,6 @@ components:
         data: {}
       required:
       - success
-    ErrorEnvelope:
-      type: object
-      properties:
-        success:
-          type: boolean
-          const: false
-        errors:
-          type: array
-          items:
-            type: object
-            properties:
-              code:
-                type: integer
-              errors:
-                type: array
-                items:
-                  type: string
-      required:
-      - success
-      - errors
     MetricsQuery:
       type: object
       properties:
@@ -129,14 +123,26 @@ components:
       - metrics
       - date_start
       - date_end
-  requestBodies:
-    MetricsQuery:
-      required: true
-      description: Metrics query — profiles, metrics and a date range (max 100 profiles, 25 metrics, 12-month range).
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/MetricsQuery'
+    ErrorEnvelope:
+      type: object
+      properties:
+        success:
+          type: boolean
+          const: false
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              code:
+                type: integer
+              errors:
+                type: array
+                items:
+                  type: string
+      required:
+      - success
+      - errors
   securitySchemes:
     basicAuth:
       type: http
@@ -150,3 +156,6 @@ components:
           authorizationUrl: https://api.emplifi.io/oauth2/0/auth
           tokenUrl: https://api.emplifi.io/oauth2/0/token
           scopes: {}
+x-refined-from:
+- socialbakers-emplifi-public-api-openapi.yml
+- socialbakers-ads-api-openapi.yml
