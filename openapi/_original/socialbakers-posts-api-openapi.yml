@@ -130,6 +130,26 @@ paths:
           $ref: '#/components/responses/Unauthorized'
 components:
   schemas:
+    ErrorEnvelope:
+      type: object
+      properties:
+        success:
+          type: boolean
+          const: false
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              code:
+                type: integer
+              errors:
+                type: array
+                items:
+                  type: string
+      required:
+      - success
+      - errors
     PostsQuery:
       type: object
       properties:
@@ -172,27 +192,21 @@ components:
           description: Number of items remaining
       required:
       - success
-    ErrorEnvelope:
-      type: object
-      properties:
-        success:
-          type: boolean
-          const: false
-        errors:
-          type: array
-          items:
-            type: object
-            properties:
-              code:
-                type: integer
-              errors:
-                type: array
-                items:
-                  type: string
-      required:
-      - success
-      - errors
+  requestBodies:
+    PostsQuery:
+      required: true
+      description: Posts query — profiles and a date range, cursor-paginated.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/PostsQuery'
   responses:
+    PagedSuccess:
+      description: Successful, cursor-paginated response
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/PagedEnvelope'
     RateLimited:
       description: Rate limit exceeded (1000 req/hour account, 500 req/hour user)
       content:
@@ -205,20 +219,6 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/ErrorEnvelope'
-    PagedSuccess:
-      description: Successful, cursor-paginated response
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/PagedEnvelope'
-  requestBodies:
-    PostsQuery:
-      required: true
-      description: Posts query — profiles and a date range, cursor-paginated.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/PostsQuery'
   securitySchemes:
     basicAuth:
       type: http

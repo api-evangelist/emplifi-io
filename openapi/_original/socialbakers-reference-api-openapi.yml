@@ -97,36 +97,6 @@ paths:
         '401':
           $ref: '#/components/responses/Unauthorized'
 components:
-  responses:
-    Success:
-      description: Successful response
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/SuccessEnvelope'
-    Unauthorized:
-      description: Authentication failed
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorEnvelope'
-  parameters:
-    Network:
-      name: network
-      in: path
-      required: true
-      description: Social network key
-      schema:
-        type: string
-        enum:
-        - facebook
-        - instagram
-        - twitter
-        - youtube
-        - linkedin
-        - pinterest
-        - tiktok
-        - snapchat
   schemas:
     SuccessEnvelope:
       type: object
@@ -162,6 +132,23 @@ components:
       required:
       - success
       - errors
+  parameters:
+    Network:
+      name: network
+      in: path
+      required: true
+      description: Social network key
+      schema:
+        type: string
+        enum:
+        - facebook
+        - instagram
+        - twitter
+        - youtube
+        - linkedin
+        - pinterest
+        - tiktok
+        - snapchat
   requestBodies:
     Query:
       required: false
@@ -170,6 +157,19 @@ components:
           schema:
             type: object
             additionalProperties: true
+  responses:
+    Success:
+      description: Successful response
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/SuccessEnvelope'
+    Unauthorized:
+      description: Authentication failed
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorEnvelope'
   securitySchemes:
     basicAuth:
       type: http

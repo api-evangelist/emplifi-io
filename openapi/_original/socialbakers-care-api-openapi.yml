@@ -46,6 +46,20 @@ paths:
           $ref: '#/components/responses/Unauthorized'
 components:
   schemas:
+    SuccessEnvelope:
+      type: object
+      properties:
+        success:
+          type: boolean
+          const: true
+        header:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+        data: {}
+      required:
+      - success
     ErrorEnvelope:
       type: object
       properties:
@@ -66,20 +80,6 @@ components:
       required:
       - success
       - errors
-    SuccessEnvelope:
-      type: object
-      properties:
-        success:
-          type: boolean
-          const: true
-        header:
-          type: array
-          items:
-            type: object
-            additionalProperties: true
-        data: {}
-      required:
-      - success
   responses:
     Success:
       description: Successful response
