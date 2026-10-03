@@ -1,15 +1,7 @@
 {
   "provider": "emplifi-io",
   "sources": [
-    "_original/socialbakers-emplifi-public-api-openapi.yml",
-    "socialbakers-ads-api-openapi.yml",
-    "socialbakers-assets-api-openapi.yml",
-    "socialbakers-care-api-openapi.yml",
-    "socialbakers-community-api-openapi.yml",
-    "socialbakers-listening-api-openapi.yml",
-    "socialbakers-posts-api-openapi.yml",
-    "socialbakers-profile-metrics-api-openapi.yml",
-    "socialbakers-reference-api-openapi.yml"
+    "_original/socialbakers-emplifi-public-api-openapi.yml"
   ],
   "outputs": [
     "emplifi-io-ads-api-openapi.yml",
@@ -21,30 +13,31 @@
     "emplifi-io-profile-metrics-api-openapi.yml",
     "emplifi-io-reference-api-openapi.yml"
   ],
-  "archived": [
-    "archived openapi/socialbakers-ads-api-openapi.yml",
-    "archived openapi/socialbakers-assets-api-openapi.yml",
-    "archived openapi/socialbakers-care-api-openapi.yml",
-    "archived openapi/socialbakers-community-api-openapi.yml",
-    "archived openapi/socialbakers-listening-api-openapi.yml",
-    "archived openapi/socialbakers-posts-api-openapi.yml",
-    "archived openapi/socialbakers-profile-metrics-api-openapi.yml",
-    "archived openapi/socialbakers-reference-api-openapi.yml"
-  ],
+  "archived": [],
   "errors": [],
   "warnings": [],
   "notes": [
+    "8 archived document(s) dropped as subsets of other archived documents",
     "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
     "socialbakers-emplifi-public-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "tag 'Ads' spans 2 source specs (socialbakers-emplifi-public-api-openapi.yml, socialbakers-ads-api-openapi.yml): per-path servers applied",
-    "tag 'Assets' spans 2 source specs (socialbakers-emplifi-public-api-openapi.yml, socialbakers-assets-api-openapi.yml): per-path servers applied",
-    "tag 'Care' spans 2 source specs (socialbakers-emplifi-public-api-openapi.yml, socialbakers-care-api-openapi.yml): per-path servers applied",
-    "tag 'Community' spans 2 source specs (socialbakers-emplifi-public-api-openapi.yml, socialbakers-community-api-openapi.yml): per-path servers applied",
-    "tag 'Listening' spans 2 source specs (socialbakers-emplifi-public-api-openapi.yml, socialbakers-listening-api-openapi.yml): per-path servers applied",
-    "tag 'Posts' spans 2 source specs (socialbakers-emplifi-public-api-openapi.yml, socialbakers-posts-api-openapi.yml): per-path servers applied",
-    "tag 'Profile Metrics' spans 2 source specs (socialbakers-emplifi-public-api-openapi.yml, socialbakers-profile-metrics-api-openapi.yml): per-path servers applied",
-    "tag 'Reference' spans 2 source specs (socialbakers-emplifi-public-api-openapi.yml, socialbakers-reference-api-openapi.yml): per-path servers applied",
-    "apis.yml register: written (+8 apis, 8 total)"
+    "apis.yml register: already-registered"
   ],
-  "skipped": []
+  "skipped": [
+    "_original/socialbakers-reference-api-openapi.yml: archived document superseded by a larger archived document",
+    "_original/socialbakers-profile-metrics-api-openapi.yml: archived document superseded by a larger archived document",
+    "_original/socialbakers-posts-api-openapi.yml: archived document superseded by a larger archived document",
+    "_original/socialbakers-listening-api-openapi.yml: archived document superseded by a larger archived document",
+    "_original/socialbakers-community-api-openapi.yml: archived document superseded by a larger archived document",
+    "_original/socialbakers-care-api-openapi.yml: archived document superseded by a larger archived document",
+    "_original/socialbakers-assets-api-openapi.yml: archived document superseded by a larger archived document",
+    "_original/socialbakers-ads-api-openapi.yml: archived document superseded by a larger archived document",
+    "emplifi-io-ads-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "emplifi-io-assets-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "emplifi-io-care-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "emplifi-io-community-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "emplifi-io-listening-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "emplifi-io-posts-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "emplifi-io-profile-metrics-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "emplifi-io-reference-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
