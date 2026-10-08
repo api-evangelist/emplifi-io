@@ -141,3 +141,74 @@ discrepancy:
   evidence:
   - {url: 'https://emplifi.io/llms.txt', status: 200}
   - {url: 'https://emplifi.io/pricing/', status: 200}
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - negotiated
+  - subscription
+  units: []
+  plans:
+  - name: Social Marketing — Essential
+    access: other
+    model: subscription
+    model_how: derived
+    units: []
+    periods:
+    - month
+  - name: Social Marketing — Advanced
+    access: other
+    model: subscription
+    model_how: derived
+    units: []
+    periods:
+    - month
+  - name: Social Marketing — Intelligent
+    access: other
+    model: negotiated
+    model_how: derived
+    units: []
+    periods:
+    - month
+  - name: Social Care — Essential
+    access: other
+    model: negotiated
+    model_how: derived
+    units: []
+    periods:
+    - month
+  - name: Social Care — Advanced
+    access: other
+    model: negotiated
+    model_how: derived
+    units: []
+    periods:
+    - month
+  - name: Social Care — Intelligent
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods:
+    - month
+  - name: Social Commerce — Essential
+    access: other
+    model: negotiated
+    model_how: derived
+    units: []
+    periods:
+    - month
+  - name: Social Commerce — Advanced
+    access: other
+    model: negotiated
+    model_how: derived
+    units: []
+    periods:
+    - month
+  - name: Social Commerce — Intelligent
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods:
+    - month
