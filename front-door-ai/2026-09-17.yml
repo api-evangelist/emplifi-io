@@ -1,18 +1,22 @@
-# Front Door AI Index — socialbakers — 2026-09-17
+# Front Door AI Index — emplifi-io — 2026-09-17
 # AI vocabulary counted on the provider's root page. Generated; do not edit.
 # `score` is null unless ownership is `own` — see front_door_ai.py.
 front_door_ai:
-  slug: socialbakers
+  slug: emplifi-io
   lexicon_version: '1.0'
   probed_at: '2026-09-17'
   host: www.emplifi.io
   final_host: emplifi.io
-  ownership: inherited
-  owner: socialbakers
-  shares_host_with: null
-  inherited_from: emplifi.io
+  ownership: unresolved
+  owner: null
+  shares_host_with:
+  - socialbakers
+  inherited_from: null
+  alias_of: emplifi.io
   verdict: scored
   score: null
+  band: null
+  band_label: null
   host_score: 20
   density: null
   words: 2423
