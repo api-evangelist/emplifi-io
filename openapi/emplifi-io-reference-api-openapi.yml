@@ -130,6 +130,23 @@ components:
         data: {}
       required:
       - success
+  parameters:
+    Network:
+      name: network
+      in: path
+      required: true
+      description: Social network key
+      schema:
+        type: string
+        enum:
+        - facebook
+        - instagram
+        - twitter
+        - youtube
+        - linkedin
+        - pinterest
+        - tiktok
+        - snapchat
   responses:
     Success:
       description: Successful response
@@ -151,23 +168,6 @@ components:
           schema:
             type: object
             additionalProperties: true
-  parameters:
-    Network:
-      name: network
-      in: path
-      required: true
-      description: Social network key
-      schema:
-        type: string
-        enum:
-        - facebook
-        - instagram
-        - twitter
-        - youtube
-        - linkedin
-        - pinterest
-        - tiktok
-        - snapchat
   securitySchemes:
     basicAuth:
       type: http

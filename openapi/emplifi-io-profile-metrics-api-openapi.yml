@@ -145,27 +145,15 @@ paths:
         '429':
           $ref: '#/components/responses/RateLimited'
 components:
+  requestBodies:
+    MetricsQuery:
+      required: true
+      description: Metrics query — profiles, metrics and a date range (max 100 profiles, 25 metrics, 12-month range).
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/MetricsQuery'
   schemas:
-    ErrorEnvelope:
-      type: object
-      properties:
-        success:
-          type: boolean
-          const: false
-        errors:
-          type: array
-          items:
-            type: object
-            properties:
-              code:
-                type: integer
-              errors:
-                type: array
-                items:
-                  type: string
-      required:
-      - success
-      - errors
     MetricsQuery:
       type: object
       properties:
@@ -194,6 +182,26 @@ components:
       - metrics
       - date_start
       - date_end
+    ErrorEnvelope:
+      type: object
+      properties:
+        success:
+          type: boolean
+          const: false
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              code:
+                type: integer
+              errors:
+                type: array
+                items:
+                  type: string
+      required:
+      - success
+      - errors
     SuccessEnvelope:
       type: object
       properties:
@@ -233,14 +241,6 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/ErrorEnvelope'
-  requestBodies:
-    MetricsQuery:
-      required: true
-      description: Metrics query — profiles, metrics and a date range (max 100 profiles, 25 metrics, 12-month range).
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/MetricsQuery'
   securitySchemes:
     basicAuth:
       type: http

@@ -164,31 +164,6 @@ paths:
         '404':
           $ref: '#/components/responses/NotFound'
 components:
-  responses:
-    NotFound:
-      description: Resource not found
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorEnvelope'
-    ValidationError:
-      description: Input validation error
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorEnvelope'
-    Success:
-      description: Successful response
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/SuccessEnvelope'
-    Unauthorized:
-      description: Authentication failed
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorEnvelope'
   schemas:
     ErrorEnvelope:
       type: object
@@ -224,6 +199,31 @@ components:
         data: {}
       required:
       - success
+  responses:
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorEnvelope'
+    ValidationError:
+      description: Input validation error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorEnvelope'
+    Success:
+      description: Successful response
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/SuccessEnvelope'
+    Unauthorized:
+      description: Authentication failed
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorEnvelope'
   parameters:
     Id:
       name: id

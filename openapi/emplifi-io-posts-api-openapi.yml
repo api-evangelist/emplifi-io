@@ -127,6 +127,25 @@ paths:
         '401':
           $ref: '#/components/responses/Unauthorized'
 components:
+  responses:
+    PagedSuccess:
+      description: Successful, cursor-paginated response
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/PagedEnvelope'
+    RateLimited:
+      description: Rate limit exceeded (1000 req/hour account, 500 req/hour user)
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorEnvelope'
+    Unauthorized:
+      description: Authentication failed
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorEnvelope'
   schemas:
     ErrorEnvelope:
       type: object
@@ -148,6 +167,25 @@ components:
       required:
       - success
       - errors
+    PostsQuery:
+      type: object
+      properties:
+        profiles:
+          type: array
+          items:
+            type: string
+        date_start:
+          type: string
+          format: date
+        date_end:
+          type: string
+          format: date
+        cursor:
+          type: string
+      required:
+      - profiles
+      - date_start
+      - date_end
     PagedEnvelope:
       type: object
       properties:
@@ -171,44 +209,6 @@ components:
           description: Number of items remaining
       required:
       - success
-    PostsQuery:
-      type: object
-      properties:
-        profiles:
-          type: array
-          items:
-            type: string
-        date_start:
-          type: string
-          format: date
-        date_end:
-          type: string
-          format: date
-        cursor:
-          type: string
-      required:
-      - profiles
-      - date_start
-      - date_end
-  responses:
-    RateLimited:
-      description: Rate limit exceeded (1000 req/hour account, 500 req/hour user)
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorEnvelope'
-    Unauthorized:
-      description: Authentication failed
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorEnvelope'
-    PagedSuccess:
-      description: Successful, cursor-paginated response
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/PagedEnvelope'
   requestBodies:
     PostsQuery:
       required: true
