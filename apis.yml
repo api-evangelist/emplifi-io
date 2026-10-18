@@ -177,6 +177,8 @@ apis:
   humanURL: https://api.emplifi.io/
   baseURL: https://api.emplifi.io
   tags:
+  - Social Listening
+  tags_raw:
   - Listening
   properties:
   - type: OpenAPI
