@@ -1,9 +1,23 @@
-generated: '2026-10-15'
+generated: '2026-10-20'
 method: searched
-checked:
-- shopify/integrations/shopify-integration-edges.yml
 source:
 - shopify/integrations/shopify-integration-edges.yml
+- https://zapier.com/apps/emplifi-io/integrations
+- https://zapier.com/apps/emplifi/integrations
+- https://n8n.io/integrations/emplifi-io/
+- https://n8n.io/integrations/emplifi/
+- https://composio.dev/toolkits/emplifi-io
+- https://monid.ai/tools/emplifi-io
+checked:
+- shopify/integrations/shopify-integration-edges.yml
+- https://composio.dev/toolkits/emplifi-io
+- https://monid.ai/tools/emplifi-io
+- https://n8n.io/integrations/emplifi-io/
+- https://n8n.io/integrations/emplifi/
+- https://zapier.com/apps/emplifi-io/integrations
+- https://zapier.com/apps/emplifi/integrations
+summary: null
+marketplace_apps: []
 edges:
 - partner_name: Shopify (own)
   partner: shopify
@@ -23,3 +37,4 @@ edges:
   detected_by: mirror-platform-listings.py
   publisher_verified:
   - Built for Shopify
+templates: []
