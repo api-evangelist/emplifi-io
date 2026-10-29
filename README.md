@@ -1,4 +1,4 @@
-# Socialbakers
+# Emplifi
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,6 +64,155 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Socialbakers is a company surfaced as a portfolio company of earlybird and added to the API Evangelist network as a stub for enrichment. Sector: marketing. This profile is a lead awaiting the enrichment pipeline.
+Emplifi (formerly Socialbakers) is a unified social customer experience platform combining social marketing, commerce and care. Socialbakers was a pioneering social media analytics and marketing platform, founded 2008 in Prague, that let brands and agencies benchmark, measure and optimize their presence across Facebook, Instagram, X/Twitter, YouTube, LinkedIn, Pinterest, TikTok and Snapchat; it joined Astute and rebranded as Emplifi in 2021 (socialbakers.com now redirects to emplifi.io). This record was listed as Socialbakers until 2026-09-24. The former Socialbakers Public API lives on as the Emplifi Public API (v3) at api.emplifi.io, exposing profile and post metrics, published content, social listening, community engagement, Facebook Ads, digital asset management and customer care data. Authentication is HTTP Basic (API token/secret) or OAuth 2.0 authorization code, with hourly rate limits and cursor-paginated content endpoints.
 
-Backed by: earlybird
+**Areas:** Company · Marketing · Social Media · Analytics · Social Media Analytics · Social Listening · Marketing Analytics · Digital Asset Management · Customer Care · Emplifi
+
+## Emplifi on APIs.io
+
+Everything profiled for Emplifi is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/emplifi-io/](https://apis.io/providers/emplifi-io/)** — or go straight to one of the APIs or properties below.
+
+### APIs (8)
+
+- [Emplifi Ads API](https://apis.io/apis/emplifi-io/emplifi-io-ads-api/) — Facebook Ads content and metrics
+- [Emplifi Assets API](https://apis.io/apis/emplifi-io/emplifi-io-assets-api/) — Digital asset management — collections and assets
+- [Emplifi Care API](https://apis.io/apis/emplifi-io/emplifi-io-care-api/) — Customer care cases and messages
+- [Emplifi Community API](https://apis.io/apis/emplifi-io/emplifi-io-community-api/) — Community content, labeling and engagement metrics
+- [Emplifi Listening API](https://apis.io/apis/emplifi-io/emplifi-io-listening-api/) — Social listening content and metrics
+- [Emplifi Posts API](https://apis.io/apis/emplifi-io/emplifi-io-posts-api/) — Published content (posts / videos / tweets) per network
+- [Emplifi Profile Metrics API](https://apis.io/apis/emplifi-io/emplifi-io-profile-metrics-api/) — Time-series and aggregate metrics per social profile
+- [Emplifi Reference API](https://apis.io/apis/emplifi-io/emplifi-io-reference-api/) — Managed profiles, labels, label groups, listening queries, ad accounts
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [socialbakers-emplifi](https://apis.io/servers/emplifi-io/socialbakers-emplifi/)
+
+#### Agentic access (1)
+
+Which operations an agent can call, which act, and which need a human in the loop.
+
+- [Socialbakers Agentic Access](https://apis.io/agentic-access/emplifi-io/socialbakers-agentic-access/)
+
+#### Collections (8)
+
+Postman and Open Collection request collections.
+
+- [Emplifi (Socialbakers) Public Ads API](https://apis.io/collections/emplifi-io/open-socialbakers-ads-api/)
+- [Emplifi (Socialbakers) Public Ads Assets API](https://apis.io/collections/emplifi-io/open-socialbakers-assets-api/)
+- [Emplifi (Socialbakers) Public Ads Care API](https://apis.io/collections/emplifi-io/open-socialbakers-care-api/)
+- [Emplifi (Socialbakers) Public Ads Community API](https://apis.io/collections/emplifi-io/open-socialbakers-community-api/)
+- [Emplifi (Socialbakers) Public Ads Listening API](https://apis.io/collections/emplifi-io/open-socialbakers-listening-api/)
+- [Emplifi (Socialbakers) Public Ads Posts API](https://apis.io/collections/emplifi-io/open-socialbakers-posts-api/)
+- [Emplifi (Socialbakers) Public Ads Profile Metrics API](https://apis.io/collections/emplifi-io/open-socialbakers-profile-metrics-api/)
+- [Emplifi (Socialbakers) Public Ads Reference API](https://apis.io/collections/emplifi-io/open-socialbakers-reference-api/)
+
+#### Overlays (1)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Socialbakers Emplifi Public Api Overlay](https://apis.io/overlays/emplifi-io/socialbakers-emplifi-public-api-overlay/)
+
+#### Security (3)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Socialbakers Authentication](https://apis.io/security/emplifi-io/socialbakers-authentication/)
+- [Socialbakers Domain Security](https://apis.io/security/emplifi-io/socialbakers-domain-security/)
+- [Socialbakers Trust Center](https://apis.io/security/emplifi-io/socialbakers-trust-center/)
+
+#### OAuth scopes (2)
+
+The permissions the API asks for.
+
+- [Emplifi Io Scopes](https://apis.io/scopes/emplifi-io/emplifi-io-scopes/)
+- [Socialbakers Scopes](https://apis.io/scopes/emplifi-io/socialbakers-scopes/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Socialbakers Plans Pricing](https://apis.io/plans/emplifi-io/socialbakers-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Socialbakers Rate Limits](https://apis.io/rate-limits/emplifi-io/socialbakers-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.emplifi.io/)
+- [Documentation](https://docs.emplifi.io/platform/latest/home)
+- [Getting started](https://docs.emplifi.io/platform/latest/home/emplifi-public-api-integration.md)
+- [API reference](https://api.emplifi.io/)
+- [Pricing](https://emplifi.io/pricing/)
+- [Support](https://support.emplifi.io/hc/en-us)
+- [Blog](https://emplifi.io/resources/blog/)
+- [Compliance](https://emplifi.io/legal/trust-center/)
+- [Terms of service](https://emplifi.io/legal/website-terms-of-use/)
+- [Privacy policy](https://emplifi.io/legal/privacy-policy/)
+- [GitHub](https://github.com/Emplifi)
+- [Status](https://status.emplifi.io/)
+
+## API Evangelist rating
+
+**Kin Score 52.5** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 78.6 |
+| Contract quality | 13.9 |
+| Contract governance | 4.5 |
+| Operational transparency | 57.9 |
+| Developer ergonomics | 58.9 |
+| Access clarity | 92.1 |
+
+**Agent readiness 29.7** — agent-ready
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | documented (partial credit) |
+| MCP Server | — |
+| Auth Clarity | negotiable (partial credit) |
+| Idempotency | — |
+| Error Semantics | derived (partial credit) |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | documented (partial credit) |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 39.2** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/emplifi-io/](https://apis.io/providers/emplifi-io/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Emplifi: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/emplifi-io/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
